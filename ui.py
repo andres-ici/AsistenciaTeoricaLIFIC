@@ -181,7 +181,22 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
         with colClase:
 
-            clase = st.selectbox("Clase", ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"))
+            if asignatura == "A1":
+
+                clase = st.selectbox("Clase", ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"))
+
+            if asignatura == "A2":
+
+                clase = st.selectbox("Clase", ("2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "26"))
+
+            if asignatura == "A3":
+
+                clase = st.selectbox("Clase", ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"))
+
+            if asignatura == "A4":
+
+                clase = st.selectbox("Clase", ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"))
+
 
         if st.button('Subir datos'):
 
