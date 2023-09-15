@@ -164,7 +164,7 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
             if asignatura == "A1":
 
-                modulo = st.selectbox("Módulo", ("1", "2"))
+                modulo = st.selectbox("Módulo", ("1"))
 
             if asignatura == "A2":
 
@@ -176,14 +176,14 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
             if asignatura == "A4":
 
-                modulo = st.selectbox("Módulo", ("1",))
+                modulo = st.selectbox("Módulo", ("1","2"))
 
 
         with colClase:
 
             if asignatura == "A1":
 
-                clase = st.selectbox("Clase", ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"))
+                clase = st.selectbox("Clase", ("2", "4", "6", "8", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28"))
 
             if asignatura == "A2":
 
@@ -195,15 +195,13 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
             if asignatura == "A4":
 
-                clase = st.selectbox("Clase", ("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13"))
+                clase = st.selectbox("Clase", ("2", "5", "8", "11", "15", "18", "21", "24", "27", "29", "32", "35", "38", "41"))
 
 
         if st.button('Subir datos'):
 
             if asignatura == "A1" and modulo == "1":
                 sheet = client.open_by_url(st.secrets["A1modulo1"])
-            elif asignatura == "A1" and modulo == "2":
-                sheet = client.open_by_url(st.secrets["A1modulo2"])
             elif asignatura == "A2" and modulo == "1":
                 sheet = client.open_by_url(st.secrets["A2modulo1"])
             elif asignatura == "A2" and modulo == "2":
@@ -216,6 +214,8 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
                 sheet = client.open_by_url(st.secrets["A3modulo2"])
             elif asignatura == "A4" and modulo == "1":
                 sheet = client.open_by_url(st.secrets["A4modulo1"])
+            elif asignatura == "A4" and modulo == "2":
+                sheet = client.open_by_url(st.secrets["A4modulo2"])
 
             worksheet_list = sheet.worksheets()
 
