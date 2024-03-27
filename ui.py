@@ -195,12 +195,13 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
             if asignatura == "A4":
 
-                clase = st.selectbox("Clase", ("01", "04", "07", "10", "13", "16", "19", "22", "25", "29", "32", "35", "38", "41", "44"))
-
                 if modulo == "x":
 
                     clase = st.selectbox("Clase", ("02", "05", "08", "11", "14", "17", "20", "23", "26", "30", "33", "36", "39", "42", "45"))
 
+                else:
+                    
+                    clase = st.selectbox("Clase", ("01", "04", "07", "10", "13", "16", "19", "22", "25", "29", "32", "35", "38", "41", "44"))
 
         if st.button('Subir datos'):
 
