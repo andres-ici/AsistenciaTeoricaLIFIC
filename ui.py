@@ -152,7 +152,7 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
         #Subir a Google drive
 
-        st.header("Subir datos a Google Drive (solo habilitado para asignatura A2)")
+        st.header("Subir datos a Google Drive")
 
         colAsignatura, colModulo, colClase = st.columns(3)
 
