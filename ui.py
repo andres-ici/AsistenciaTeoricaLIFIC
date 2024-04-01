@@ -103,6 +103,11 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
         presentes = datosMerge[datosMerge["Tiempo"] >= minimo]
         ausentes = datosMerge[datosMerge["Tiempo"] < minimo]
 
+        datosFinales = datosMerge.copy()
+        datosFinales.insert(loc = 6, column = "Matrícula Presentes", value = presentes['Matrícula'])
+
+        st.write(datosFinales)
+
         #Mostrar resultados y descargar
 
         #Variables
