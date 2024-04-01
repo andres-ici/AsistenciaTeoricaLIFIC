@@ -106,8 +106,6 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
         datosFinales = datosMerge.copy()
         datosFinales.insert(loc = 6, column = "Matrícula Presentes", value = presentes['Matrícula'])
 
-        st.write(datosFinales)
-
         #Mostrar resultados y descargar
 
         #Variables
@@ -141,12 +139,12 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
         st.plotly_chart(fig)
         
-        archivoClass = convert_df(datosMerge)
+        archivoClass = convert_df(datosFinales)
         archivoPresentes = convert_df(presentes)
         archivoAusentes = convert_df(ausentes)
 
         st.subheader("Alumnos clasificados")
-        st.write(datosMerge) 
+        st.write(datosFinales) 
         st.download_button("Descargar", archivoClass, "Alumnos Clasificados {}.csv".format(fecha), "text/csv", key='Clasificados-csv')
         st.subheader("Alumnos presentes")
         st.write(presentes) 
@@ -231,7 +229,7 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
             worksheet = sheet.worksheet(claseWS)
 
-            gd.set_with_dataframe(worksheet, datosMerge)
+            gd.set_with_dataframe(worksheet, datosFinales)
             st.write("Datos subidos")
     
     else:
