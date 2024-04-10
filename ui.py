@@ -206,31 +206,34 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
                     
                     clase = st.selectbox("Clase", ("01", "04", "07", "10", "13", "16", "19", "22", "25", "29", "32", "35", "38", "41", "44"))
 
-        if st.button('Subir datos'):
+        with st.spinner("Subiendo Datos, por favor esperar"):
 
-            if asignatura == "A1" and modulo == "1":
-                sheet = client.open_by_url(st.secrets["A1modulo1"])
-            elif asignatura == "A1" and modulo == "2":
-                sheet = client.open_by_url(st.secrets["A1modulo2"])
-            elif asignatura == "A2" and modulo == "2":
-                sheet = client.open_by_url(st.secrets["A2modulo2"])
-            elif asignatura == "A3" and modulo == "1":
-                sheet = client.open_by_url(st.secrets["A3modulo1"])
-            elif asignatura == "A3" and modulo == "2":
-                sheet = client.open_by_url(st.secrets["A3modulo2"])
-            elif asignatura == "A4" and modulo == "1":
-                sheet = client.open_by_url(st.secrets["A4modulo1"])
-            elif asignatura == "A4" and modulo == "x":
-                sheet = client.open_by_url(st.secrets["A4modulox"])
+            if st.button('Subir datos'):
 
-            worksheet_list = sheet.worksheets()
+                if asignatura == "A1" and modulo == "1":
+                    sheet = client.open_by_url(st.secrets["A1modulo1"])
+                elif asignatura == "A1" and modulo == "2":
+                    sheet = client.open_by_url(st.secrets["A1modulo2"])
+                elif asignatura == "A2" and modulo == "2":
+                    sheet = client.open_by_url(st.secrets["A2modulo2"])
+                elif asignatura == "A3" and modulo == "1":
+                    sheet = client.open_by_url(st.secrets["A3modulo1"])
+                elif asignatura == "A3" and modulo == "2":
+                    sheet = client.open_by_url(st.secrets["A3modulo2"])
+                elif asignatura == "A4" and modulo == "1":
+                    sheet = client.open_by_url(st.secrets["A4modulo1"])
+                elif asignatura == "A4" and modulo == "x":
+                    sheet = client.open_by_url(st.secrets["A4modulox"])
 
-            claseWS = "Clase {}".format(clase)
+                worksheet_list = sheet.worksheets()
 
-            worksheet = sheet.worksheet(claseWS)
+                claseWS = "Clase {}".format(clase)
 
-            gd.set_with_dataframe(worksheet, datosFinales)
-            st.write("Datos subidos")
+                worksheet = sheet.worksheet(claseWS)
+
+                gd.set_with_dataframe(worksheet, datosFinales)
+
+                st.success("Datos Subidos!")
     
     else:
 
