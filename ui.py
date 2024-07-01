@@ -97,6 +97,15 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
         datosMerge = pd.merge(datosAsistencia, datosRegistro, how = "outer")
         datosMerge = datosMerge.reindex(columns=["Correo", "Matrícula", "Nombre", "Apellido", "Tiempo"])
 
+        
+        datosMerge['Matrícula'] = datosMerge['Matrícula'].astype('str').str.replace(r" ", r"", regex=False) #Se quitan los espacios 
+        datosMerge['Matrícula'] = datosMerge['Matrícula'].astype('str').str.replace(r".", r"", regex=False) #Se quitan los puntos
+        datosMerge['Matrícula'] = datosMerge['Matrícula'].astype('str').str.replace(r",", r"", regex=False) #Se quitan los puntos
+        datosMerge['Matrícula'] = datosMerge['Matrícula'].astype('str').str.replace(r"-", r"", regex=False) #Se quitan los guiones 
+        datosMerge['Matrícula'] = datosMerge['Matrícula'].astype('str').str.replace(r"_", r"", regex=False) #Se quitan los guiones 
+        datosMerge['Matrícula'] = datosMerge['Matrícula'].astype('str').str.upper() #Transforma a mayuscula
+
+
         datosMerge["Tiempo"] = datosMerge["Tiempo"].fillna(0).astype(int)
         datosMerge["Estado"] = ["Presente" if a >= minimo else "Ausente" for a in datosMerge["Tiempo"]]
 
