@@ -176,15 +176,15 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
             if asignatura == "A1":
 
-                modulo = st.selectbox("Módulo", ("1", "2"))
+                modulo = st.selectbox("Módulo", ("1"))
 
             if asignatura == "A2":
 
-                modulo = st.selectbox("Módulo", ("2"))
+                modulo = st.selectbox("Módulo", ("1", "2"))
 
             if asignatura == "A3":
 
-                modulo = st.selectbox("Módulo", ("1", "2"))
+                modulo = st.selectbox("Módulo", ("1"))
 
             if asignatura == "A4":
 
@@ -195,15 +195,15 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
             if asignatura == "A1":
 
-                clase = st.selectbox("Clase", ("02", "04", "06", "08", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28", "30", "32"))
+                clase = st.selectbox("Clase", ("01", "02", "04", "06", "08", "10", "12", "14", "16", "18", "20", "22", "24", "26", "28"))
 
             if asignatura == "A2":
 
-                clase = st.selectbox("Clase", ("02", "04", "06", "08", "10", "12", "14", "16", "18", "20", "22", "24", "26"))
+                clase = st.selectbox("Clase", ("01", "03", "05", "07", "09", "11", "13", "15", "17", "19", "21", "23", "25", "27", "29"))
 
             if asignatura == "A3":
 
-                clase = st.selectbox("Clase", ("02", "04", "06", "08", "10", "12", "14", "16", "19", "21", "23", "25", "27", "29"))
+                clase = st.selectbox("Clase", ("01", "03", "05", "07", "09", "11", "13", "15", "17", "19", "21", "23", "25", "27", "29"))
 
             if asignatura == "A4":
 
@@ -213,7 +213,7 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
                 else:
                     
-                    clase = st.selectbox("Clase", ("01", "04", "07", "10", "13", "16", "19", "22", "25", "29", "32", "35", "38", "41", "44"))
+                    clase = st.selectbox("Clase", ("01", "04", "07", "10", "13", "16", "19", "22", "25", "28", "31", "33", "36", "39", "42"))
 
         with st.spinner("Subiendo Datos, por favor esperar"):
 
@@ -221,14 +221,12 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
                 if asignatura == "A1" and modulo == "1":
                     sheet = client.open_by_url(st.secrets["A1modulo1"])
-                elif asignatura == "A1" and modulo == "2":
-                    sheet = client.open_by_url(st.secrets["A1modulo2"])
+                elif asignatura == "A2" and modulo == "1":
+                    sheet = client.open_by_url(st.secrets["A2modulo1"])
                 elif asignatura == "A2" and modulo == "2":
                     sheet = client.open_by_url(st.secrets["A2modulo2"])
                 elif asignatura == "A3" and modulo == "1":
                     sheet = client.open_by_url(st.secrets["A3modulo1"])
-                elif asignatura == "A3" and modulo == "2":
-                    sheet = client.open_by_url(st.secrets["A3modulo2"])
                 elif asignatura == "A4" and modulo == "1":
                     sheet = client.open_by_url(st.secrets["A4modulo1"])
                 elif asignatura == "A4" and modulo == "x":
