@@ -209,7 +209,7 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
                 if modulo == "x":
 
-                    clase = st.selectbox("Clase", ("02", "05", "08", "11", "14", "17", "20", "23", "26", "30", "33", "36", "39", "42", "45"))
+                    clase = st.selectbox("Clase", ("02", "05", "08", "11", "14", "17", "20", "23", "26", "29", "32", "34", "37", "40", "43"))
 
                 else:
                     
