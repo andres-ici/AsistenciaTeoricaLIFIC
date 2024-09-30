@@ -30,7 +30,7 @@ def verificar1(data):
 
     valor = [data.iloc[0,0]]
 
-    if valor[0] == "ID de la reunión":
+    if valor[0] == "Tema":
         return 1
     else:
         return 0
@@ -78,10 +78,10 @@ if (asistenciaFile and registroFile) is not None: #Varificar si se suben los arc
 
     if verificar1(asistencia) or verificar2(registro): #Verifica el formato de los csv subidos
 
-        duracionTotal = [asistencia.iloc[1,5]]
+        duracionTotal = [asistencia.iloc[1,3]]
         maximo =  int(duracionTotal[0])
         minimo = int(duracionTotal[0])*0.9*0.5
-        fecha = [asistencia.iloc[1,2]]
+        fecha = [asistencia.iloc[1,4]]
         fecha = fecha[0]
 
         asistencia = asistencia[asistencia[3] != "No"] #Se quita el creador de la reunion
